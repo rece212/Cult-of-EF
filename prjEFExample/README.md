@@ -1,5 +1,4 @@
-Create database Contacts ;
-use Contacts;
+
 create table tblContacts(
 	[PersonID] int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[FirstName] varchar(255) not null,
@@ -28,4 +27,4 @@ dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet tool install --global dotnet-ef
 
 
-dotnet ef dbcontext scaffold "Server=tcp:rwanvigdb.database.windows.net,1433;Initial Catalog=rwanvigdb;Persist Security Info=False;User ID=rwanvig;Password=@Password1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" Microsoft.EntityFrameworkCore.SqlServer -o Model
+dotnet ef dbcontext scaffold "Server=tcp:rwanvig.database.windows.net,1433;Initial Catalog=rwanvigdb;Persist Security Info=False;User ID=rwanvig;Password=@Password1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" Microsoft.EntityFrameworkCore.SqlServer -o Model
