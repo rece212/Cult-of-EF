@@ -28,3 +28,25 @@ dotnet tool install --global dotnet-ef
 
 
 dotnet ef dbcontext scaffold "Server=tcp:rwanvig.database.windows.net,1433;Initial Catalog=rwanvigdb;Persist Security Info=False;User ID=rwanvig;Password=@Password1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" Microsoft.EntityFrameworkCore.SqlServer -o Model
+
+select
+    'data source=' + @@servername +
+    ';initial catalog=' + db_name() +
+    case type_desc
+        when 'WINDOWS_LOGIN' 
+            then ';trusted_connection=true'
+        else
+            ';user id=' + suser_name() + ';password=<<YourPassword>>'
+    end
+    as ConnectionString
+from sys.server_principals
+where name = suser_name()
+
+
+data source=VCECPELITPC2;initial catalog=dbAPI;trusted_connection=true
+
+
+
+dotnet ef dbcontext scaffold "Server=VCECPELITPC2;Initial Catalog=dbAPI;Integrated Security=True;Encrypt=False;" Microsoft.EntityFrameworkCore.SqlServer -o Models
+
+
