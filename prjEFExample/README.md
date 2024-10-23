@@ -50,3 +50,8 @@ data source=VCECPELITPC2;initial catalog=dbAPI;trusted_connection=true
 dotnet ef dbcontext scaffold "Server=VCECPELITPC2;Initial Catalog=dbAPI;Integrated Security=True;Encrypt=False;" Microsoft.EntityFrameworkCore.SqlServer -o Models
 
 
+
+-------
+vm connection string
+dotnet ef dbcontext scaffold "Server=labVMH8OX\SQLEXPRESS;Initial Catalog=dbAPI;Integrated Security=True;Encrypt=False;" Microsoft.EntityFrameworkCore.SqlServer -o Models
+
